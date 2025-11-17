@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package rl;
+
+// 单个 transition
+message Transition {
+  repeated float state = 1;   // s
+  repeated float action = 2;  // a
+  float reward = 3;           // r
+  float value = 4;            // V_old(s)
+  float logprob = 5;          // log π_old(a|s)
+  repeated float next_state = 6; // s'
+  int32 done = 5;                   // episode 结束与否
+}
+
+// 批量（Sequence or Replay Buffer Chunk）
+message TransitionBatch {
+  repeated Transition transitions = 1;
+
+  // 可选：timestamp 或 policy info
+  double timestamp = 2;
+  string policy_id = 3;
+  double model_ts = 4; //模型时间戳
+}
