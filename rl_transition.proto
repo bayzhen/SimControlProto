@@ -10,7 +10,7 @@ message Transition {
   float value = 4;            // V_old(s)
   float logprob = 5;          // log π_old(a|s)
   repeated float next_state = 6; // s'
-  int32 done = 5;                   // episode 结束与否
+  int32 done = 7;                   // episode 结束与否
 }
 
 // 批量（Sequence or Replay Buffer Chunk）
