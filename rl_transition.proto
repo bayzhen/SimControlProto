@@ -17,5 +17,5 @@ message Transition {
 message TransitionBatch {
   repeated Transition transitions = 1;
   string model_tag = 2;
-  int32 versition = 3;
+  int32 version = 3;
 }
